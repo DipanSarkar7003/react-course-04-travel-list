@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-function Items({item , onDeleteItems }) {
+function Items({item , onDeleteItems ,onCheckItems , items }) {
  
-const [check , setCheck] = useState(false)
+
 
   return (
   <>
@@ -17,20 +17,17 @@ const [check , setCheck] = useState(false)
     <li>
       <input
         type="checkbox"
-        value={check}
-        onChange={()=>setCheck(!check)}
+        value={item.packed}
+        // onChange={()=>setCheck(!check)}
+        onChange={()=>onCheckItems(item.id)}
         
        
       />
-      <span style={check ? { textDecoration: "line-through" } : {}}>
+      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.count} {item.input}
       </span>
       <button onClick={() => onDeleteItems(item.id)}>❌</button>
     </li>
-
-
-
-    
   </>
 
   )
