@@ -42,7 +42,10 @@ function App() {
 
   function handleClearItems(){
     // items==initialItems?setItems([]):setItems(initialItems)
-    setItems([])
+    // alert("delete permanently ?")
+    let confirmed = window.confirm("delete permanently ?")
+    confirmed&&setItems([])
+    
     
     console.log("clear")
   }
